@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fffaf4;
+  --color-blush: #ffe3ef;
+  --color-blushdeep: #f9b9d4;
+  --color-lav: #e9e1ff;
+  --color-lavdeep: #cdbcf3;
+  --color-peach: #ffe7c9;
+  --color-mint: #ddf3e4;
+  --color-cocoa: #5c4033;
+  --color-cocoasoft: #8a6a54;
+  --color-rose: #b23a6e;
+  --color-plum: #6a4fb3;
+
+  --font-display: var(--font-baloo), "Baloo 2", ui-rounded, system-ui, sans-serif;
+  --font-body: var(--font-nunito), "Nunito", system-ui, sans-serif;
+
+  --animate-floaty: floaty 6s ease-in-out infinite;
+  --animate-drift: drift 10s ease-in-out infinite;
+  --animate-bob: bob 4.5s ease-in-out infinite;
+  --animate-wiggle: wiggle 3s ease-in-out infinite;
+  --animate-marquee: marquee 26s linear infinite;
+
+  @keyframes floaty {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-14px) rotate(8deg);
+    }
+  }
+
+  @keyframes drift {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+      transform: translate(14px, -24px) rotate(10deg);
+    }
+    66% {
+      transform: translate(-12px, -10px) rotate(-8deg);
+    }
+  }
+
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(1.5deg);
+    }
+  }
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg) scale(1.08);
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-cocoa font-body antialiased;
+  overflow-x: clip;
+  scrollbar-color: var(--color-blushdeep) var(--color-cream);
+}
+
+::selection {
+  background: var(--color-blushdeep);
+  color: var(--color-cocoa);
+}
+
+/* Cute pastel scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-blushdeep);
+  border-radius: 999px;
+  border: 3px solid var(--color-cream);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-rose);
+}
+
+/* Visible, cute focus ring everywhere */
+:focus-visible {
+  outline: 3px solid var(--color-rose);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+/* Sticker-style cards: white border + offset pastel shadow */
+.sticker {
+  background: #fff;
+  border: 4px solid #fff;
+  border-radius: 2rem;
+  box-shadow: 10px 10px 0 0 var(--color-blush);
+}
+.sticker-lav {
+  box-shadow: 10px 10px 0 0 var(--color-lav);
+}
+.sticker-peach {
+  box-shadow: 10px 10px 0 0 var(--color-peach);
+}
+.sticker-mint {
+  box-shadow: 10px 10px 0 0 var(--color-mint);
+}
+
+/* Squishy bouncy hover for buttons, badges, cards */
+.squishy {
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.8, 0.5, 1),
+    box-shadow 0.3s ease;
+}
+.squishy:hover {
+  transform: translateY(-4px) scale(1.04) rotate(-1deg);
+}
+.squishy:active {
+  transform: scale(0.94);
+}
+
+/* Gradient pastel text for headings */
+.text-cute-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--color-rose),
+    var(--color-plum) 55%,
+    var(--color-rose)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Washi-tape strip across the top of polaroids */
+.washi {
+  position: relative;
+}
+.washi::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  z-index: 10;
+  width: 110px;
+  height: 30px;
+  transform: translateX(-50%) rotate(-4deg);
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(249, 185, 212, 0.9) 0 10px,
+    rgba(255, 227, 239, 0.9) 10px 20px
+  );
+  border-left: 2px dashed rgba(255, 255, 255, 0.8);
+  border-right: 2px dashed rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(92, 64, 51, 0.12);
+  pointer-events: none;
+}
+
+/* Nav links: a little heart pops in under the link on hover */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "♡";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%) scale(0);
+  transition: transform 0.25s cubic-bezier(0.34, 1.8, 0.5, 1);
+  color: var(--color-rose);
+  font-size: 0.75rem;
+  line-height: 1;
+  pointer-events: none;
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: translateX(-50%) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
