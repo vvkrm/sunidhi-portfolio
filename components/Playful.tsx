@@ -44,7 +44,7 @@ type BurstParticle = {
 };
 
 const BURST_CHARS = ["♥", "♡", "✦", "✧"];
-const BURST_COLORS = ["text-rose", "text-plum", "text-blushdeep", "text-[#e58bb1]"];
+const BURST_COLORS = ["text-bora", "text-plum", "text-boradeep", "text-blushdeep"];
 let burstSeq = 0;
 
 export function HeartBursts() {
@@ -150,7 +150,7 @@ export function SparkleTrail() {
       {sparks.map((s) => (
         <span
           key={s.id}
-          className="particle-trail text-lavdeep"
+          className="particle-trail text-bora"
           style={
             {
               left: s.x,
@@ -316,7 +316,7 @@ export function BackToTop() {
       aria-label="Back to top"
       aria-hidden={!show}
       tabIndex={show ? 0 : -1}
-      className={`fixed bottom-6 right-6 z-[60] grid size-14 place-items-center rounded-full border-4 border-white bg-rose text-white shadow-[5px_5px_0_0_var(--color-blushdeep)] transition-all duration-300 hover:scale-110 active:scale-95 ${
+      className={`fixed bottom-6 right-6 z-[60] grid size-14 place-items-center rounded-full border-4 border-white bg-plum text-white shadow-[5px_5px_0_0_var(--color-lavdeep)] transition-all duration-300 hover:scale-110 active:scale-95 ${
         show
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0"

@@ -24,7 +24,7 @@ function FlipPolaroid({ photo, tilt }: { photo: Photo; tilt: string }) {
         className="flip-card squishy block w-full cursor-pointer"
       >
         <span className="flip-inner" data-flipped={flipped}>
-          <span className="flip-face sticker washi p-3 pb-5">
+          <span className="flip-face sticker washi washi-bora p-3 pb-5">
             <Image
               src={photo.src}
               alt={photo.alt}
@@ -62,11 +62,14 @@ export function Gallery() {
     >
       <Floaties />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-20 bottom-10 size-64 rounded-full bg-blush/60 blur-3xl" />
+        <div className="absolute -left-20 bottom-10 size-64 rounded-full bg-lav/60 blur-3xl" />
         <div className="absolute -right-24 top-16 size-72 rounded-full bg-peach/50 blur-3xl" />
       </div>
       <div className="relative mx-auto max-w-5xl px-6 py-14 md:py-20">
-        <BowDoodle className="mx-auto mb-3 size-12 text-rose" delay="1.4s" />
+        <BowDoodle className="mx-auto mb-3 size-12 text-plum" delay="1.4s" />
+        <p className="korean mx-auto mb-4 w-fit rounded-full bg-lav px-4 py-1.5 text-sm font-extrabold tracking-wide text-plum shadow-[3px_3px_0_0_var(--color-lavdeep)]">
+          {gallery.kicker}
+        </p>
         <h2
           id="gallery-heading"
           className="text-cute-gradient text-center font-display text-3xl font-extrabold md:text-4xl"
@@ -86,14 +89,14 @@ export function Gallery() {
           {Array.from({ length: gallery.emptySlots }).map((_, i) => (
             <figure
               key={`empty-${i}`}
-              className={`squishy rounded-[2rem] border-4 border-dashed border-blushdeep bg-white/60 p-3 pb-5 ${
+              className={`squishy rounded-[2rem] border-4 border-dashed border-lavdeep bg-white/60 p-3 pb-5 ${
                 i % 2 === 0 ? "rotate-1" : "-rotate-1"
               }`}
               aria-label={gallery.emptyCaption}
             >
-              <div className="grid aspect-[3/4] w-full place-items-center rounded-2xl bg-blush/50">
+              <div className="grid aspect-[3/4] w-full place-items-center rounded-2xl bg-lav/60">
                 <ImagePlus
-                  className="size-12 text-blushdeep"
+                  className="size-12 text-plum"
                   aria-hidden="true"
                 />
               </div>
@@ -105,7 +108,7 @@ export function Gallery() {
         </div>
 
         <HeartDoodle
-          className="mx-auto mt-10 size-8 text-blushdeep"
+          className="mx-auto mt-10 size-8 text-plum"
           delay="0.9s"
         />
       </div>

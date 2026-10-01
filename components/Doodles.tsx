@@ -138,6 +138,22 @@ export function Floaties({ className = "" }: { className?: string }) {
 }
 
 /**
+ * Glowing purple heart divider — a radiant borahae heart between two
+ * gradient rules. Decorative only.
+ */
+export function GlowHeartDivider({ className = "" }: { className?: string }) {
+  return (
+    <div aria-hidden="true" className={`glow-heart-divider ${className}`}>
+      <HeartDoodle
+        animateClass=""
+        className="size-10 text-bora"
+        delay="0s"
+      />
+    </div>
+  );
+}
+
+/**
  * Wavy SVG divider. Place between sections: render it on the *previous*
  * section's background with `fill` set to the *next* section's colour.
  */

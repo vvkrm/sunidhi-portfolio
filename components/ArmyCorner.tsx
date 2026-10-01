@@ -42,16 +42,25 @@ export function ArmyCorner() {
 
   return (
     <>
-      <Wave fill="#e9e1ff" />
+      <Wave fill="#e6d6ff" />
       <section
         id="army"
         aria-labelledby="army-heading"
-        className="relative scroll-mt-28 bg-lav"
+        className="relative scroll-mt-28 overflow-hidden bg-[linear-gradient(165deg,#e6d6ff_0%,#d5bcff_45%,#c3a6f7_100%)]"
       >
         <Floaties />
+        {/* giant decorative fan-phrase watermark */}
+        <div
+          aria-hidden="true"
+          className="korean pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden"
+        >
+          <span className="select-none whitespace-nowrap font-display text-[26vw] font-extrabold leading-none text-white/25 md:text-[18rem]">
+            {army.glowWord}
+          </span>
+        </div>
         <div className="relative mx-auto max-w-5xl px-6 py-14 md:py-20">
           <HeartDoodle
-            className="absolute left-[6%] top-12 size-9 text-plum"
+            className="absolute left-[6%] top-12 size-9 text-boradeep"
             delay="0.3s"
           />
           <SparkleDoodle
@@ -60,11 +69,16 @@ export function ArmyCorner() {
           />
 
           <div className="sticker sticker-lav squishy grid items-center gap-8 p-8 md:grid-cols-2 md:p-12">
-            <div className="relative mx-auto w-full max-w-[280px]">
+            <div className="relative mx-auto w-full max-w-[340px]">
+              {/* original lightstick-inspired glow beam behind the plushie */}
+              <div
+                aria-hidden="true"
+                className="light-beam animate-beam-sway"
+              />
               {phrase && (
                 <div
                   role="status"
-                  className="speech-bubble absolute -top-2 left-1/2 z-20 w-max max-w-[220px] -translate-x-1/2 -translate-y-full rounded-2xl bg-white px-4 py-2 text-center font-display text-base font-bold text-rose shadow-[4px_4px_0_0_var(--color-lavdeep)]"
+                  className="speech-bubble absolute -top-2 left-1/2 z-20 w-max max-w-[220px] -translate-x-1/2 -translate-y-full rounded-2xl bg-white px-4 py-2 text-center font-display text-base font-bold text-plum shadow-[4px_4px_0_0_var(--color-lavdeep)]"
                 >
                   {phrase}
                 </div>
@@ -93,32 +107,31 @@ export function ArmyCorner() {
                 </div>
               </div>
               <HeartDoodle
-                className="absolute -left-4 -top-4 size-10 text-rose"
+                className="absolute -left-4 -top-4 size-10 text-boradeep"
                 delay="1.1s"
               />
             </div>
 
             <div className="text-center md:text-left">
-              <p className="squishy mb-3 inline-flex items-center gap-2 rounded-full bg-plum px-4 py-1.5 text-sm font-bold text-white">
+              <p className="squishy mb-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-plum to-boradeep px-4 py-1.5 text-sm font-bold text-white shadow-[3px_3px_0_0_var(--color-lavdeep)]">
                 <Music className="size-4" aria-hidden="true" />
                 ARMY corner
               </p>
               <h2
                 id="army-heading"
-                className="text-cute-gradient font-display text-3xl font-extrabold md:text-4xl"
+                className="text-cute-gradient font-display text-4xl font-extrabold drop-shadow-[0_0_18px_rgba(139,92,246,0.45)] md:text-5xl"
               >
                 {army.heading}
               </h2>
               <p className="mt-3 text-lg leading-relaxed text-cocoasoft">
                 {army.copy}
               </p>
-              <ul className="mt-5 flex flex-wrap justify-center gap-2.5 md:justify-start">
+              <ul className="heart-bullets mt-5 flex flex-wrap justify-center gap-2.5 md:justify-start">
                 {army.chips.map((chip) => (
                   <li
                     key={chip}
-                    className="squishy flex items-center gap-1.5 rounded-full bg-white px-4 py-1.5 text-sm font-bold text-plum shadow-[3px_3px_0_0_var(--color-lavdeep)]"
+                    className="squishy rounded-full bg-white px-4 py-1.5 text-sm font-bold text-plum shadow-[3px_3px_0_0_var(--color-lavdeep)]"
                   >
-                    <Heart className="size-3.5" aria-hidden="true" />
                     {chip}
                   </li>
                 ))}
@@ -127,7 +140,7 @@ export function ArmyCorner() {
                 <button
                   type="button"
                   onClick={() => setShowerKey((k) => k + 1)}
-                  className="squishy inline-flex items-center gap-2 rounded-full bg-plum px-6 py-2.5 font-display text-base font-bold text-white shadow-[5px_5px_0_0_var(--color-lavdeep)]"
+                  className="squishy inline-flex items-center gap-2 rounded-full bg-plum px-6 py-2.5 font-display text-base font-bold text-white shadow-[5px_5px_0_0_var(--color-lavdeep),0_0_24px_rgba(139,92,246,0.55)]"
                 >
                   <Heart
                     className="size-4 fill-white/90 text-white"
@@ -140,7 +153,7 @@ export function ArmyCorner() {
           </div>
         </div>
       </section>
-      <div className="bg-lav">
+      <div className="bg-[#c3a6f7]">
         <Wave fill="#fffaf4" flip />
       </div>
       <HeartShower burstKey={showerKey} />

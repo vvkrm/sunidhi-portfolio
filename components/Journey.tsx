@@ -8,11 +8,11 @@ const stopIcons = {
   future: Stethoscope,
 } as const;
 
-const stopColors = ["bg-blush", "bg-lav", "bg-mint"] as const;
+const stopColors = ["bg-lav", "bg-blush", "bg-boraglow/70"] as const;
 const stopShadows = [
-  "shadow-[8px_8px_0_0_var(--color-blushdeep)]",
   "shadow-[8px_8px_0_0_var(--color-lavdeep)]",
-  "shadow-[8px_8px_0_0_var(--color-mint)]",
+  "shadow-[8px_8px_0_0_var(--color-blushdeep)]",
+  "shadow-[8px_8px_0_0_#b9a5f2]",
 ] as const;
 
 export function Journey() {
@@ -25,7 +25,7 @@ export function Journey() {
     >
       <Floaties />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-24 top-1/3 size-72 rounded-full bg-peach/60 blur-3xl" />
+        <div className="absolute -left-24 top-1/3 size-72 rounded-full bg-lav/70 blur-3xl" />
         <div className="absolute -right-20 top-16 size-64 rounded-full bg-mint/50 blur-3xl" />
       </div>
       <StarDoodle
@@ -34,6 +34,9 @@ export function Journey() {
       />
       <div className="relative mx-auto max-w-3xl px-6 py-14 md:py-20">
         <BowDoodle className="mx-auto mb-3 size-12 text-plum" delay="1s" />
+        <p className="korean mx-auto mb-4 w-fit rounded-full bg-lav px-4 py-1.5 text-sm font-extrabold tracking-wide text-plum shadow-[3px_3px_0_0_var(--color-lavdeep)]">
+          {journey.kicker}
+        </p>
         <h2
           id="journey-heading"
           className="text-cute-gradient text-center font-display text-3xl font-extrabold md:text-4xl"
@@ -44,7 +47,7 @@ export function Journey() {
           {journey.subheading}
         </p>
 
-        <ol className="relative mt-10 space-y-8 before:absolute before:bottom-4 before:left-[27px] before:top-4 before:w-1.5 before:rounded-full before:bg-blushdeep">
+        <ol className="relative mt-10 space-y-8 before:absolute before:bottom-4 before:left-[27px] before:top-4 before:w-1.5 before:rounded-full before:bg-lavdeep">
           {journey.stops.map((stop, i) => {
             const Icon = stopIcons[stop.icon];
             return (
@@ -57,7 +60,7 @@ export function Journey() {
                 <article
                   className={`squishy flex-1 rounded-3xl border-4 border-white bg-white p-6 ${stopShadows[i % stopShadows.length]}`}
                 >
-                  <p className="inline-block rounded-full bg-cream px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-rose">
+                  <p className="inline-block rounded-full bg-cream px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-plum">
                     {stop.tag}
                   </p>
                   <h3 className="mt-2 font-display text-2xl font-extrabold text-cocoa">

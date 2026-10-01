@@ -26,11 +26,14 @@ export const site = {
       { label: "ARMY corner", href: "#army", primary: false },
     ],
     rotatingWords: ["future doctor", "certified ARMY", "study buddy"],
+    /** Small decorative floating tag by the hero photo (fan phrase, decorative only). */
+    boraTag: "보라해 💜",
     photoAlt:
       "Sunidhi Kumari smiling in front of India Gate, New Delhi, lit up in tricolour at night",
   },
   about: {
     heading: "A little about me",
+    kicker: "about ♡ 소개",
     paragraphs: [
       "Hi! I'm Sunidhi Kumari, an MBBS student at Radha Govind Medical College, Meerut — and a future doctor in the making.",
       "When I'm not buried in my medical books, I'm a proud BTS ARMY, running on purple hearts, late-night study playlists, and big dreams of healing people one day.",
@@ -38,6 +41,7 @@ export const site = {
   },
   journey: {
     heading: "My journey",
+    kicker: "journey ♡ 여정",
     subheading: "No dates, just dreams — in progress.",
     stops: [
       {
@@ -68,6 +72,8 @@ export const site = {
       "A cute pastel-purple teddy bear plushie wearing a knit scarf",
     plushieCaption: "my study buddy (not official merch!)",
     showerLabel: "shower purple hearts",
+    /** Giant decorative background word in the ARMY corner (fan phrase, decorative only). */
+    glowWord: "보라해",
     plushiePhrases: [
       "borahae! 💜",
       "study break time!",
@@ -79,6 +85,7 @@ export const site = {
   },
   gallery: {
     heading: "Little moments",
+    kicker: "gallery ♡ 갤러리",
     photos: [
       {
         src: "/images/sunidhi.jpg",
