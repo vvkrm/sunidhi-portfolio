@@ -41,9 +41,13 @@ exist (none were given) — please don't invent any.
 
 - `sunidhi.jpg` (878×1120) — Sunidhi's photo, used in the hero (sticker
   frame) and gallery ("India Gate nights" polaroid).
-- `bts-plushie.webp` (1600×1600) — an original cute pastel-purple bear
+- `bts-plushie.webp` (800×800) — an original cute pastel-purple bear
   plushie with a knit scarf, used in the ARMY corner as her "study buddy".
   It is **not** official BTS merchandise and the site says so in its caption.
+
+The real image files are decoded from `*.b64` base64 sources by
+`scripts/decode-images.mjs`, which runs automatically before `dev` and
+`build` — so a fresh clone works with zero manual steps.
 
 To swap a photo, replace the file (keep the same filename) or update the
 `src` in `data/site.ts`.
