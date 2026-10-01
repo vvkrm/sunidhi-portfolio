@@ -12,6 +12,10 @@
   --color-cocoasoft: #8a6a54;
   --color-rose: #b23a6e;
   --color-plum: #6a4fb3;
+  /* Borahae purples — BTS-fan purple family, kept soft and pastel */
+  --color-bora: #8b5cf6;
+  --color-boradeep: #7c3aed;
+  --color-boraglow: #c4b5fd;
 
   --font-display: var(--font-baloo), "Baloo 2", ui-rounded, system-ui, sans-serif;
   --font-body: var(--font-nunito), "Nunito", system-ui, sans-serif;
@@ -73,6 +77,39 @@
       transform: translateX(-50%);
     }
   }
+
+  /* soft breathing purple glow */
+  @keyframes glow-pulse {
+    0%,
+    100% {
+      opacity: 0.55;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.06);
+    }
+  }
+
+  /* gentle sway for the lightstick-inspired glow beam */
+  @keyframes beam-sway {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: translateX(-50%) rotate(-2deg);
+    }
+    50% {
+      opacity: 0.85;
+      transform: translateX(-50%) rotate(2deg);
+    }
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 5s ease-in-out infinite;
+}
+.animate-beam-sway {
+  animation: beam-sway 7s ease-in-out infinite;
 }
 
 html {
@@ -82,15 +119,15 @@ html {
 body {
   @apply bg-cream text-cocoa font-body antialiased;
   overflow-x: clip;
-  scrollbar-color: var(--color-blushdeep) var(--color-cream);
+  scrollbar-color: var(--color-lavdeep) var(--color-cream);
 }
 
 ::selection {
-  background: var(--color-blushdeep);
+  background: var(--color-lavdeep);
   color: var(--color-cocoa);
 }
 
-/* Cute pastel scrollbar */
+/* Cute pastel scrollbar, tinted lavender */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -98,17 +135,17 @@ body {
   background: var(--color-cream);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-blushdeep);
+  background: var(--color-lavdeep);
   border-radius: 999px;
   border: 3px solid var(--color-cream);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-rose);
+  background: var(--color-plum);
 }
 
 /* Visible, cute focus ring everywhere */
 :focus-visible {
-  outline: 3px solid var(--color-rose);
+  outline: 3px solid var(--color-boradeep);
   outline-offset: 3px;
   border-radius: 12px;
 }
@@ -143,17 +180,46 @@ body {
   transform: scale(0.94);
 }
 
-/* Gradient pastel text for headings */
+/* Gradient pastel text for headings — purple-led borahae blend */
 .text-cute-gradient {
   background: linear-gradient(
     100deg,
-    var(--color-rose),
+    var(--color-boradeep),
     var(--color-plum) 55%,
     var(--color-rose)
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* Korean decorative words fall back to system Korean fonts gracefully */
+.korean {
+  font-family:
+    "Baloo 2",
+    "Noto Sans KR",
+    "Apple SD Gothic Neo",
+    "Malgun Gothic",
+    system-ui,
+    sans-serif;
+}
+
+/* Purple heart bullet points */
+.heart-bullets {
+  list-style: none;
+}
+.heart-bullets > li {
+  position: relative;
+  padding-left: 1.75rem;
+}
+.heart-bullets > li::before {
+  content: "💜";
+  position: absolute;
+  left: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85em;
+  line-height: 1;
 }
 
 /* Washi-tape strip across the top of polaroids */
@@ -181,6 +247,15 @@ body {
   pointer-events: none;
 }
 
+/* Purple-tinted washi tape variant */
+.washi-bora::before {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(205, 188, 243, 0.92) 0 10px,
+    rgba(233, 225, 255, 0.92) 10px 20px
+  );
+}
+
 /* Nav links: a little heart pops in under the link on hover */
 .nav-link {
   position: relative;
@@ -192,7 +267,7 @@ body {
   bottom: -4px;
   transform: translateX(-50%) scale(0);
   transition: transform 0.25s cubic-bezier(0.34, 1.8, 0.5, 1);
-  color: var(--color-rose);
+  color: var(--color-plum);
   font-size: 0.75rem;
   line-height: 1;
   pointer-events: none;
@@ -327,7 +402,7 @@ body {
 .type-caret {
   display: inline-block;
   animation: caret-blink 1.1s steps(2, start) infinite;
-  color: var(--color-rose);
+  color: var(--color-plum);
   font-weight: 800;
 }
 
@@ -385,4 +460,54 @@ body {
 }
 .animate-backtop-bob {
   animation: backtop-bob 2.6s ease-in-out infinite;
+}
+
+/* ---------- borahae theme ---------- */
+
+/* Original lightstick-inspired glow beam: a soft trapezoid of light.
+   Pure CSS, generic — not a copy of any official lightstick. */
+.light-beam {
+  position: absolute;
+  left: 50%;
+  top: -8%;
+  width: min(420px, 80%);
+  height: 116%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(196, 181, 253, 0.45) 45%,
+    rgba(139, 92, 246, 0.12) 100%
+  );
+  clip-path: polygon(38% 0, 62% 0, 100% 100%, 0% 100%);
+  filter: blur(28px);
+  pointer-events: none;
+}
+
+/* Glowing purple heart divider: gradient rules + a radiant heart */
+.glow-heart-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.glow-heart-divider::before,
+.glow-heart-divider::after {
+  content: "";
+  height: 4px;
+  width: min(180px, 30vw);
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-boraglow),
+    var(--color-bora),
+    var(--color-boraglow),
+    transparent
+  );
+}
+.glow-heart-divider > svg {
+  filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.75))
+    drop-shadow(0 0 26px rgba(139, 92, 246, 0.4));
+  animation: glow-pulse 4s ease-in-out infinite;
 }

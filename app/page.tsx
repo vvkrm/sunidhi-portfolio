@@ -6,6 +6,7 @@ import { Journey } from "@/components/Journey";
 import { ArmyCorner } from "@/components/ArmyCorner";
 import { Gallery } from "@/components/Gallery";
 import { Footer } from "@/components/Footer";
+import { GlowHeartDivider } from "@/components/Doodles";
 import { HeartBursts, SparkleTrail, BackToTop } from "@/components/Playful";
 
 export default function Home() {
@@ -15,6 +16,9 @@ export default function Home() {
       <main id="main">
         <Hero />
         <Marquee />
+        <div className="mx-auto max-w-5xl px-6 pb-2 pt-10">
+          <GlowHeartDivider />
+        </div>
         <About />
         <Journey />
         <ArmyCorner />
