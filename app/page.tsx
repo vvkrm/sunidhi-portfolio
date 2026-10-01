@@ -6,6 +6,7 @@ import { Journey } from "@/components/Journey";
 import { ArmyCorner } from "@/components/ArmyCorner";
 import { Gallery } from "@/components/Gallery";
 import { Footer } from "@/components/Footer";
+import { HeartBursts, SparkleTrail, BackToTop } from "@/components/Playful";
 
 export default function Home() {
   return (
@@ -20,6 +21,9 @@ export default function Home() {
         <Gallery />
       </main>
       <Footer />
+      <BackToTop />
+      <HeartBursts />
+      <SparkleTrail />
     </>
   );
 }

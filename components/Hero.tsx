@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Heart, Stethoscope, ArrowDown } from "lucide-react";
 import { site } from "@/data/site";
 import { HeartDoodle, SparkleDoodle, StarDoodle } from "./Doodles";
+import { Typewriter } from "./Playful";
 
 const badgeIcons = {
   stethoscope: Stethoscope,
@@ -82,6 +83,12 @@ export function Hero() {
           </h1>
           <p className="mt-4 font-display text-2xl font-bold text-plum">
             {hero.tagline}
+          </p>
+          <p className="mt-2 text-lg font-bold text-cocoa">
+            <span aria-hidden="true" className="text-rose">
+              ✦{" "}
+            </span>
+            <Typewriter />
           </p>
           <p className="mt-2 text-lg font-semibold text-cocoasoft">
             {hero.subline}

@@ -25,6 +25,7 @@ export const site = {
       { label: "My journey", href: "#journey", primary: true },
       { label: "ARMY corner", href: "#army", primary: false },
     ],
+    rotatingWords: ["future doctor", "certified ARMY", "study buddy"],
     photoAlt:
       "Sunidhi Kumari smiling in front of India Gate, New Delhi, lit up in tricolour at night",
   },
@@ -66,6 +67,15 @@ export const site = {
     plushieAlt:
       "A cute pastel-purple teddy bear plushie wearing a knit scarf",
     plushieCaption: "my study buddy (not official merch!)",
+    showerLabel: "shower purple hearts",
+    plushiePhrases: [
+      "borahae! 💜",
+      "study break time!",
+      "fighting!",
+      "purple hearts for you!",
+      "you've got this!",
+      "take a little breath ♡",
+    ],
   },
   gallery: {
     heading: "Little moments",
